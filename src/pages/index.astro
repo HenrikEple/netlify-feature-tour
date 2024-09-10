@@ -55,8 +55,8 @@ import ShopifyProducts from '../components/ShopifyProducts.jsx';
 >
   <h1>Welcome to Our Shop</h1>
 
-  <!-- The ShopifyProducts component will load on page load -->
-  <ShopifyProducts client:load />
+  <!-- The ShopifyProducts component will load on the client side only -->
+  <ShopifyProducts client:only="react" />
 
   <main class="steps">
     <section class="step">
