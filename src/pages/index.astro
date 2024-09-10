@@ -1,6 +1,13 @@
 ---
 import Layout from '../components/layout.astro';
 import ShopifyProducts from '../components/ShopifyProducts.jsx';
+
+// Track whether the button has been clicked
+let showProducts = false;
+
+const handleButtonClick = () => {
+  showProducts = true;
+};
 ---
 
 <style>
@@ -55,8 +62,15 @@ import ShopifyProducts from '../components/ShopifyProducts.jsx';
 >
   <h1>Welcome to Our Shop</h1>
 
-  <!-- The ShopifyProducts component will load on the client side only -->
-  <ShopifyProducts client:only="react" />
+  <!-- Button to trigger the display of Shopify products -->
+  <button onClick={() => handleButtonClick()}>
+    Show Shopify Products
+  </button>
+
+  {showProducts && (
+    <!-- The ShopifyProducts component will load after button click -->
+    <ShopifyProducts client:load />
+  )}
 
   <main class="steps">
     <section class="step">
