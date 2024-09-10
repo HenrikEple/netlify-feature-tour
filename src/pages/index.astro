@@ -1,13 +1,6 @@
 ---
 import Layout from '../components/layout.astro';
 import ShopifyProducts from '../components/ShopifyProducts.jsx';
-
-// Track whether the button has been clicked
-let showProducts = false;
-
-const handleButtonClick = () => {
-  showProducts = true;
-};
 ---
 
 <style>
@@ -60,6 +53,11 @@ const handleButtonClick = () => {
   description="This is a small site to show the most powerful features of Netlify for Eplehuset!"
   home
 >
+  <h1>Welcome to Our Shop</h1>
+
+  <!-- The ShopifyProducts component will load on page load -->
+  <ShopifyProducts client:load />
+
   <main class="steps">
     <section class="step">
       <h2 class="stepHeading">Deploy Previews WITH A KICK!</h2>
@@ -113,15 +111,4 @@ const handleButtonClick = () => {
       </a>
     </section>
   </main>
-  <h1>Welcome to Our Shop</h1>
-    
-    <!-- Button to trigger the display of Shopify products -->
-    <button onClick={() => handleButtonClick()}>
-      Show Shopify Products
-    </button>
-
-    {showProducts && (
-      <!-- The ShopifyProducts component will load on button click -->
-      <ShopifyProducts client:load />
-    )}
 </Layout>
