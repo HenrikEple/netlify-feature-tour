@@ -16,7 +16,8 @@ exports.handler = async function(event, context) {
                 'X-Shopify-Access-Token': accessToken
             }
         });
-
+        console.log("Running Function")
+        console.log(response)
         if (!response.ok) {
             return {
                 statusCode: response.status,
