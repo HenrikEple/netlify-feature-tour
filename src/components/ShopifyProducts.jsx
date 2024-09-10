@@ -9,6 +9,7 @@ const ShopifyProducts = () => {
         // Fetch data from the Netlify function
         const fetchProducts = async () => {
             try {
+                console.log("Running JSX")
                 const response = await fetch('/.netlify/functions/fetch-shopify-products');
                 if (!response.ok) {
                     throw new Error(`Error fetching products: ${response.statusText}`);
